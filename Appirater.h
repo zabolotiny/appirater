@@ -92,7 +92,6 @@ extern NSString *const kAppiraterReminderRequestDate;
  */
 @property(nonatomic, strong) id ratingAlert;
 @property(nonatomic) BOOL openInAppStore;
-@property(nonatomic) BOOL isRemindButtonRequired;
 #if __has_feature(objc_arc_weak)
 @property(nonatomic, weak) NSObject <AppiraterDelegate> *delegate;
 #else
