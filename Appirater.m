@@ -153,6 +153,9 @@ static BOOL _alwaysUseMainBundle = NO;
 + (void)setAlwaysUseMainBundle:(BOOL)alwaysUseMainBundle {
     _alwaysUseMainBundle = alwaysUseMainBundle;
 }
++ (void)setRemindOption:(BOOL)isRemindOn {
+    self.isRemindOn = isRemindOn;
+}
 
 + (NSBundle *)bundle
 {
@@ -279,12 +282,12 @@ static BOOL _alwaysUseMainBundle = NO;
       return;
   }
   
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunguarded-availability"
-    if (NSStringFromClass([SKStoreReviewController class]) != nil) {
-#pragma clang diagnostic pop
-        [Appirater rateApp];
-    } else {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wunguarded-availability"
+//    if (NSStringFromClass([SKStoreReviewController class]) != nil) {
+//#pragma clang diagnostic pop
+//        [Appirater rateApp];
+//    } else {
         // Otherwise show a custom Alert
         NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:self.alertRateTitle, nil];
         if (displayRateLaterButton && self.isRemindButtonRequired) {
@@ -327,7 +330,7 @@ static BOOL _alwaysUseMainBundle = NO;
             [alertView show];
 #pragma clang diagnostic pop
         }
-    }
+//    }
 
   if (delegate && [delegate respondsToSelector:@selector(appiraterDidDisplayAlert:)]) {
            [delegate appiraterDidDisplayAlert:self];

@@ -299,7 +299,7 @@ extern NSString *const kAppiraterReminderRequestDate;
 /*!
  If set to YES, Appirater will add reming option to a popup. Default NO.
  */
-+ (void)setRemindOption:(BOOL)isRemingOn;
++ (void)setRemindOption:(BOOL)isRemindOn;
 @end
 
 
