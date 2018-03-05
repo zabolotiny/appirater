@@ -206,6 +206,7 @@ static BOOL _alwaysUseMainBundle = NO;
 - (id)init {
     self = [super init];
     if (self) {
+        self.isRemindButtonRequired = NO;
         if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
             self.openInAppStore = YES;
         } else {
@@ -286,7 +287,7 @@ static BOOL _alwaysUseMainBundle = NO;
     } else {
         // Otherwise show a custom Alert
         NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:self.alertRateTitle, nil];
-        if (displayRateLaterButton) {
+        if (displayRateLaterButton && self.isRemindButtonRequired) {
             [buttons addObject:self.alertRateLaterTitle];
         }
         if (NSStringFromClass([UIAlertController class]) != nil) {

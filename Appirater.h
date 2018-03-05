@@ -92,6 +92,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  */
 @property(nonatomic, strong) id ratingAlert;
 @property(nonatomic) BOOL openInAppStore;
+@property(nonatomic) BOOL isRemindButtonRequired;
 #if __has_feature(objc_arc_weak)
 @property(nonatomic, weak) NSObject <AppiraterDelegate> *delegate;
 #else
@@ -295,6 +296,10 @@ extern NSString *const kAppiraterReminderRequestDate;
  */
 + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle;
 
+/*!
+ If set to YES, Appirater will add reming option to a popup. Default NO.
+ */
++ (void)setRemindOption:(BOOL)isRemingOn;
 @end
 
 
