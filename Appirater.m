@@ -503,31 +503,33 @@ static BOOL _isRemindButtonRequired = NO;
 }
 
 - (void)incrementAndRate:(BOOL)canPromptForRating {
-	[self incrementUseCount];
-	
-	if (canPromptForRating &&
-        [self ratingConditionsHaveBeenMet] &&
-        [self ratingAlertIsAppropriate])
-	{
+    [self incrementUseCount];
+
+    if (canPromptForRating &&
+        [self ratingConditionsHaveBeenMet])
+    {
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [self showRatingAlert];
-                       });
-	}
+            if ([self ratingAlertIsAppropriate]) {
+                [self showRatingAlert];
+            }
+        });
+    }
 }
 
 - (void)incrementSignificantEventAndRate:(BOOL)canPromptForRating {
-	[self incrementSignificantEventCount];
-	
+    [self incrementSignificantEventCount];
+
     if (canPromptForRating &&
-        [self ratingConditionsHaveBeenMet] &&
-        [self ratingAlertIsAppropriate])
-	{
+        [self ratingConditionsHaveBeenMet])
+    {
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [self showRatingAlert];
-                       });
-	}
+            if ([self ratingAlertIsAppropriate]) {
+                [self showRatingAlert];
+            }
+        });
+    }
 }
 
 - (BOOL)userHasDeclinedToRate {
